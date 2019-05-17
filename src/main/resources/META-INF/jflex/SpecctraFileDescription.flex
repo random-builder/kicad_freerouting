@@ -35,8 +35,8 @@ QuoteChar2 = '
 
 SpecCharASCII = _|\.|\/|\\|:|#|\$|&|>|<|,|;|=|@|\[|\]||\~|\*|\?|\!|\%|\^
 
-SpecCharANSI1 = �|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�|�
-SpecCharANSI2 = [�-�]
+SpecCharANSI1 = €|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|‘|’|“|”|•|–|—|˜|™|š|›|œ|ž|Ÿ
+SpecCharANSI2 = [¡-ÿ]
 SpecCharANSI = {SpecCharANSI1}|{SpecCharANSI2}
 
 
