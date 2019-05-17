@@ -1,0 +1,19 @@
+language: java
+dist: xenial
+jdk:
+- openjdk8
+- openjdk11
+cache:
+  directories:
+  - "$HOME/.m2"
+  - "./test-repo" 
+env:
+  global:
+  - secure: WfU7803rJ4rGuX6ErNJwDf099tjzlo15v573y3y1u/0BboRscZxMxV9fAZEv1mVPVQXojhzibScDhNGMse9H4rSQmgUjrfGn4u9qA3FyP2GV3QkieBjvwLcU1Z3Deu/Y/Gw8ZdsaRsyGq/gHAVqMJWuUdJhOOEvDOj9ts62MI2y0daffsuD/5aZiWXBdWLkGj2Mk0U6E8d/CdDWGgjO6uEidNpFG/oz1tfDEUcGF6yYWAk6zRgEJHuuWimKm4mIpAJQR4CEsCo0GFeB+fQXWyX7A0jXewFHsO8e7VEkStyPC80JhBoL0lx2K9eJvNdBCYKlH8EmYjovvIxSMcqOWcVO1Mjz2msf/OVzg2prJLUrG5/qgFxWIASrjOfrBSnvNiYLQzokk5/0XS6BjMpsIWoPTrsG+/Lv41UkXYP91JhQHzl+EgXpIE4RsCk6WYI3mASxCfdKtG5l9FSd9vXBsQ7+FOpxfAzQuTKJDpN74lj32CbtLck2uP9KYycqBYUrD+/zH5mIkncCisbLzjxJ1l0HTTWSywjCd25qFKD4+GOIY2ZJl4CSwJd6hVjUZUKFNTExW/67ffsRq6YBeQFink+nYCoBVGSlnH0m7Evt2rBHK/ttI90j9X9KkJ/AZ/aH/3nywnodCTQ6ogkwHS6Iu1UFjAyHJzSMuZHmNVfjMuY0=
+  - secure: XnYbenmZqTpOQyVJRiN3FvBi3DuMcrjXWfuyr+TJ9geyMqMHdJYpQnWRcs3NKoFs6iWC7KkReXsBYi3lOhKtw0DDEU2dldnTGQV8M37G3O95O4+CIhEWaVnPzoX+cJfDhRUGqYbzsDD+pocbE98Tu12F95+HILb5MUjh+WkZyeqKsugjNo1zbHYwcpzi5+ilwJfNQLSaCGH3OCXKagwmsjcBMdIotpkONHX5jKgExtc2ulaX7Z3AL86Fp7nXFLitPyjjxaoeLhWgbQzNPi8Px3ktgqBIXGfXL4UDO8R8ck1tQEc5NTPBWzibmrwwDdyL2fAw60GaxKtXPooZc6htttkIrNkaAYgxM57YkBKVOFHjo58mYsh8H/T/T1/IE41AymEtjget4vXWAB7Nlkw7O3Y62brZomf9Snm0kC51k0L0/+DoIY6YpltMVSha2Hloixzgm8NNHjy7gWJ4N7cc7oPpoPiJR+yce2c7BFn3n2qznvN78gatM+UM+f8ebfEMNFmIPOtnfY70P2ffFZsv8ujR3tg2z9XpDmnXWxVWES5fdanKJ4oWdoj5NuosyaZXO9RASry8lU4xmWNJese04WAcqQ4iuhJ/6PhI16vjhgK6SIhK/orRFv9ycvdokteUb2HGm/TWhQ9iEGFw3Gqdu2Gdiebk74IZ9usiAHbWOBw=
+install:
+- "/bin/true"
+script:
+- "cp -f ./.mvn/ci/settings.xml $HOME/.m2/settings.xml"
+- "./.mvn/verify.sh || exit 1"
+- "./.mvn/release-bintray.sh || exit 1"

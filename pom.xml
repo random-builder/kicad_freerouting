@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.carrotgarden.a</groupId>
+        <artifactId>carrot-a</artifactId>
+        <version>0-SNAPSHOT</version>
+        <relativePath>.mvn</relativePath>
+    </parent>
+
+    <groupId>com.carrotgarden.kicad</groupId>
+    <artifactId>kicad-freerouting</artifactId>
+    <version>${revision}</version>
+
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+        </license>
+    </licenses>
+
+    <url>https://github.com/random-builder/kicad_freerouting</url>
+    <scm>
+        <url>https://github.com/random-builder/kicad_freerouting</url>
+        <connection>scm:git:git@github.com:random-maven/random-builder/kicad_freerouting.git</connection>
+        <developerConnection>scm:git:git@github.com:random-builder/kicad_freerouting.git</developerConnection>
+    </scm>
+
+    <properties>
+        <release.epoch>2.0.0</release.epoch>
+        <bintray.subject>random-maven</bintray.subject>
+        <bintray.repository>maven</bintray.repository>
+    </properties>
+
+    <dependencies>
+
+    </dependencies>
+
+</project>
