@@ -17,11 +17,13 @@
 package interactive;
 
 import geometry.planar.FloatPoint;
+import util.SupporFunction;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
 
 /**
  *  Logfile to track the actions in the interactive board handling
@@ -38,7 +40,8 @@ public class Logfile
      */
     public boolean start_read(InputStream p_input_stream)
     {
-        this.scanner = new LogfileScanner(p_input_stream);
+    	Reader reader = SupporFunction.readerFrom(p_input_stream);
+        this.scanner = new LogfileScanner(reader);
         return (this.scanner != null);
     }
     

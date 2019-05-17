@@ -20,6 +20,9 @@
 package designformats.specctra;
 
 import datastructures.IndentFileWriter;
+import util.SupporFunction;
+
+import java.io.Reader;
 
 import board.BasicBoard;
 import board.TestLevel;
@@ -47,7 +50,8 @@ public class DsnFile
     public static ReadResult read(java.io.InputStream p_input_stream, interactive.BoardHandling p_board_handling,
                                   board.BoardObservers p_observers, datastructures.IdNoGenerator p_item_id_no_generator, TestLevel p_test_level)
     {
-        Scanner scanner = new SpecctraFileScanner(p_input_stream);
+    	Reader reader = SupporFunction.readerFrom(p_input_stream);
+        Scanner scanner = new SpecctraFileScanner(reader);
         Object curr_token = null;
         for (int i = 0; i < 3; ++i)
         {

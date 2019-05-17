@@ -20,7 +20,9 @@ Comment = {TraditionalComment} | {EndOfLineComment}
 TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
 EndOfLineComment     = "#" {InputCharacter}* {LineTerminator}
 
-Letter=[A-Za-z]
+// Letter=[A-Za-z]
+Letter=[:jletter:]
+
 Digit=[0-9]
 
 DecIntegerLiteral =  ([+-]? (0 | [1-9][0-9]*))
@@ -137,5 +139,4 @@ Identifier = ({Letter}|{SpecChar})({Letter}|{Digit}|{SpecChar})*
 }
 
 /* error fallback */
-.|\n                             { throw new Error("Illegal character <"+
-                                                    yytext()+">"); }
+[^]|\n                             { throw new Error("Parser failure at: <" + yytext() + ">"); }

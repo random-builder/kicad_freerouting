@@ -20,6 +20,9 @@
 
 package designformats.specctra;
 
+import java.io.Reader;
+
+import util.SupporFunction;
 
 /**
  * Transformes a Specctra session file into an Eagle script file.
@@ -39,7 +42,8 @@ public class SessionToEagle extends javax.swing.JFrame
         
         // create a scanner for reading the session_file.
         
-        Scanner scanner = new SpecctraFileScanner(p_session);
+    	Reader reader = SupporFunction.readerFrom(p_session);
+        Scanner scanner = new SpecctraFileScanner(reader);
         
         // create a file_writer for the eagle script file.
         java.io.OutputStreamWriter file_writer = new java.io.OutputStreamWriter(p_output_stream);

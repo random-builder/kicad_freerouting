@@ -21,6 +21,9 @@
 package gui;
 
 import datastructures.IndentFileWriter;
+import util.SupporFunction;
+
+import java.io.Reader;
 
 import board.ItemSelectionFilter;
 
@@ -99,7 +102,8 @@ public class GUIDefaultsFile
         {
             return false;
         }
-        GUIDefaultsScanner scanner = new GUIDefaultsScanner(p_input_stream);
+    	Reader reader = SupporFunction.readerFrom(p_input_stream);
+        GUIDefaultsScanner scanner = new GUIDefaultsScanner(reader);
         GUIDefaultsFile new_instance = new GUIDefaultsFile(p_board_frame, p_board_handling, scanner, null);
         boolean result = true;
         try

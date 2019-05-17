@@ -24,7 +24,9 @@ Comment = {TraditionalComment} | {EndOfLineComment}
 TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
 EndOfLineComment     = "#" {InputCharacter}* {LineTerminator}
 
-Letter=[A-Za-z]
+// Letter=[A-Za-z]
+Letter=[:jletter:]
+
 Digit=[0-9]
 
 /* Character used for quoting string */
@@ -33,8 +35,8 @@ QuoteChar2 = '
 
 SpecCharASCII = _|\.|\/|\\|:|#|\$|&|>|<|,|;|=|@|\[|\]||\~|\*|\?|\!|\%|\^
 
-SpecCharANSI1 = €|‚|ƒ|„|…|†|‡|ˆ|‰|Š|‹|Œ|Ž|‘|’|“|”|•|–|—|˜|™|š|›|œ|ž|Ÿ
-SpecCharANSI2 = [¡-ÿ]
+SpecCharANSI1 = ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½|ï¿½
+SpecCharANSI2 = [ï¿½-ï¿½]
 SpecCharANSI = {SpecCharANSI1}|{SpecCharANSI2}
 
 
@@ -307,5 +309,4 @@ ComponentIdentifier = ({Letter}|{Digit}|{SpecChar4})({Letter}|{Digit}|{SpecChar5
 }
 
 /* error fallback */
-.|\n                             { throw new Error("Illegal character <"+
-                                                    yytext()+">"); }
+[^]|\n                             { throw new Error("Parser failure at: <" + yytext() + ">"); }

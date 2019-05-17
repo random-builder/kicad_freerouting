@@ -22,6 +22,9 @@
 package designformats.specctra;
 
 import datastructures.IndentFileWriter;
+import util.SupporFunction;
+
+import java.io.Reader;
 
 import  board.BasicBoard;
 
@@ -64,7 +67,8 @@ public class RulesFile
             interactive.BoardHandling p_board_handling)
     {
         BasicBoard routing_board = p_board_handling.get_routing_board();
-        Scanner scanner =  new SpecctraFileScanner(p_input_stream);
+    	Reader reader = SupporFunction.readerFrom(p_input_stream);
+        Scanner scanner =  new SpecctraFileScanner(reader);
         try
         {
             Object curr_token = scanner.next_token();
